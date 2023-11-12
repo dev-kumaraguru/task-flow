@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <title>Task Flow</title>
+  </head>
+  <body>
+    <main class="bg-bgPrimary grid min-h-screen">
+      <div
+        id="intro-modal"
+        class="hidden relative place-content-center z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-2 rounded-md bg-slate-900 text-white w-screen h-screen"
+      >
+        <div></div>
+        <h2 class="text-center text-slate-300 text-2xl font-bold">
+          Welcome to task flow,
+        </h2>
+        <p class="text-lg mb-10">The simple task list app you need!</p>
+        <form action="" id="getUserName" class="flex flex-col gap-3">
+          <label for="username" class="text-center"
+            >How should we call you?</label
+          >
+          <input
+            type="text"
+            name=""
+            id="username"
+            placeholder="Enter your name.."
+            class="bg-transparent border-2 p-2 rounded-full"
+          />
+          <input type="submit" value="Let's Start" class="underline" />
+        </form>
+      </div>
+      <div class="mx-auto flex flex-col border-4 border-txtPrimary">
+        <div class="bg-txtPrimary p-3 flex justify-between items-center">
+          <h1 class="text-bgPrimary tracking-widest flex flex-col">
+            <span id="greeting" class="text-lg"></span
+            ><span
+              id="d-username"
+              class="text-xl text-amber-400 font-bold"
+              contenteditable="true"
+            ></span>
+          </h1>
+          <button id="toggle-dark" class="bg-accent p-2 rounded-md">
+            Dark
+          </button>
+        </div>
+        <div class="p-4">
+          <form
+            action=""
+            class="px-4 mt-4 grid place-content-center grid-cols-4 gap-5 mx-auto"
+            id="addTask"
+          >
+            <input
+              type="text"
+              name=""
+              id="taskName"
+              placeholder="eg:buy vegetables.."
+              class="border-2 border-bgSecondary p-2 rounded-md col-span-3 bg-bgPrimary text-txtPrimary"
+            />
+            <input
+              type="submit"
+              value="Add task"
+              class="bg-amber-400 text-black px-2 py-2 rounded-md"
+            />
+          </form>
+        </div>
+        <!-- <div class="flex gap-5 mx-auto my-5">
+          <button class="bg-accent py-1 px-2 rounded-md">All</button>
+          <button class="bg-accent py-1 px-2 rounded-md">Active</button>
+          <button class="bg-accent py-1 px-2 rounded-md">Completed</button>
+        </div> -->
+        <ul class="flex flex-col gap-3 px-4" id="task-list">
+          <!-- list items goes here -->
+        </ul>
+      </div>
+    </main>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((registration) => {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+    <script src="./temp.js"></script>
+  </body>
+</html>
